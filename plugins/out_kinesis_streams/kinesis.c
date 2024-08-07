@@ -113,11 +113,6 @@ static int cb_kinesis_init(struct flb_output_instance *ins,
         ctx->custom_endpoint = FLB_FALSE;
     }
 
-    tmp = flb_output_get_property("port", ins);
-    if (tmp) {
-        ctx->port = tmp;
-    }
-
     tmp = flb_output_get_property("sts_endpoint", ins);
     if (tmp) {
         ctx->sts_endpoint = (char *) tmp;
@@ -446,7 +441,7 @@ static struct flb_config_map config_map[] = {
     },
 
     {
-     FLB_CONFIG_MAP_INT, "port", 443,
+     FLB_CONFIG_MAP_INT, "port", "443",
      0, FLB_FALSE, 0,
      "Specify a port for the Kinesis API"
     },
